@@ -5,6 +5,7 @@ if (process.env.NODE_ENV === 'development') {
     url = 'http://localhost:5000/api'
 }
 if (process.env.NODE_ENV === 'production') {
+    console.log(process.env.NODE_ENV)
     url = 'api'
 }
 const api = axios.create({

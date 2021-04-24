@@ -14,6 +14,7 @@ router.post('/api/clients', async (req, res) => {
 
 router.get('/api/clients', (req, res) => {
     console.log('get is working')
+    res.status(200).send();
 })
 
 module.exports = router;

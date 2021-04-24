@@ -6,13 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/index.js",
-    "server": "nodemon ./server/index.js"
+    "server": "nodemon ./server/index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
+    "concurrently": "^6.0.2",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.12.5",
+    "path": "^0.12.7",
     "validator": "^13.6.0"
   }
 }

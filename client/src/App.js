@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './api/api';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [value, setValue] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await api.get('clients');
+      console.log(data);
+    };
+    fetchData();
+  })
+
+  const handleSubmit = async () => {
+    await api.post('clients', { name: value })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        onChange={(e) => setValue(e.target.value)}
+        value={value}
+        type='text'
+      ></input>
+      <button
+        onClick={handleSubmit}
+      >Submit</button>
+
     </div>
   );
 }

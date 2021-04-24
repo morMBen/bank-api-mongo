@@ -2,7 +2,7 @@ const express = require('express');
 const Client = require('../models/client');
 const router = new express.Router();
 
-router.post('/api/client', async (req, res) => {
+router.post('/api/clients', async (req, res) => {
     try {
         const newClient = new Client(req.body);
         const data = await newClient.save()
@@ -12,7 +12,7 @@ router.post('/api/client', async (req, res) => {
     }
 })
 
-router.get('/api', (req, res) => {
+router.get('/api/clients', (req, res) => {
     console.log('get is working')
 })
 

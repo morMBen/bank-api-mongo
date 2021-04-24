@@ -12,11 +12,7 @@ const Accounts = mongoose.model('Accounts', {
     credit: {
         type: Number,
         default: 0,
-        validete(value) {
-            if (value < 0) {
-                throw new Error('The credit must be a positive number')
-            }
-        },
+        min: 0
     },
     transaction: {
 

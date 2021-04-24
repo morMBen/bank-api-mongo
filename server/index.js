@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const path = require('path');
-const clientRouter = require('./routers/client');
+const appRouter = require('./routers/router');
 const app = express();
 require('./db/mongoose');
 
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
-app.use(clientRouter);
+app.use(appRouter);
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', (req, res) => {

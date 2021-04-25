@@ -9,9 +9,9 @@ router.use(express.json())
 //transfer money
 router.patch('/api/transfer', async (req, res) => {
     try {
-        const { from, to, amount } = req.body
-        const fromAccount = await Accounts.findOne({ _id: from.id })
-        const toAccount = await Accounts.findOne({ _id: to.id })
+        const { from, to, amount } = req.body;
+        const fromAccount = await Accounts.findOne({ _id: from })
+        const toAccount = await Accounts.findOne({ _id: to })
         if (!fromAccount || !toAccount) {
             throw new Error('Accounts did not found check them and rewrite')
         }
